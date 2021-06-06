@@ -10,14 +10,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Clock Website</title>
 </head>
 
 <body>
     <div class="collapse" id="navbarToggleExternalContent">
         <div class="bg-dark p-4">
-            <h5 class="text-white h4">Timer</h5>
-            <span class="text-muted">This Website Will Show The Current Time Date And DAy.</span>
+            <h5 class="text-white h4">Hanzalla Muzaffar</h5>
+            <a href="https://github.com/hanzalla" target="_blank" class="text-muted">for source code click on me.</a>
         </div>
     </div>
     <nav class="navbar navbar-dark bg-dark">
@@ -29,28 +29,28 @@
             </button>
         </div>
     </nav>
-    <div class="card mb-3 mx-auto m-4" style="max-width: 80%; height: 80vh;">
+    <div class="card mb-3 mx-auto m-4" style="max-width: 80%; height: auto;">
         <div class="row g-0">
             <div class="col-md-4">
                 <div class="container">
-                    <img src="watch.gif" alt="watch-gif" width="100%">
+                    <a href="https://github.com/hanzalla" target="_blank"><img src="watch.gif" alt="watch-gif"
+                            width="100%"></a>
                 </div>
             </div>
             <div class=" col-md-8">
                 <div class="card-body">
-                    <h1 class="card-title display-4 ">Current Time:</h1>
-                    <q class="card-text ">Yesterday is gone. Tomorrow has not yet come. We have only today. Let
+                    <h3 class="card-title display-6 ">Current Time is : <span id="timer"></span></h3>
+                    <q class="card-text display-4 ">Yesterday is gone. Tomorrow has not yet come. We have only today.
+                        Let
                         us
                         begin.</q>
                     <p class="blockquote-footer m-4">
-                        <small class="text-muted">Mother Theresa</small>
+                        <small class="text-muted display-6">Mother Theresa</small>
                         <style>
-                            small {
-                                font-size: 20px;
-                            }
-
-                            q {
-                                font-size: 25px;
+                            a {
+                                text-transform: capitalize;
+                                font-size: 22px;
+                                text-decoration: none;
                             }
                         </style>
                     </p>
@@ -73,10 +73,18 @@
     -->
 </body>
 <script>
-    let a;
-    a = new Date();
-    a.getDate();
-    console.log(a)
+
+    let date;
+    let time;
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    setInterval(() => {
+        d = new Date();
+        date = d.toLocaleDateString('en-US', options);
+        time = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+        document.getElementById('timer').innerHTML = time + " on " + date;
+
+    }, 1000);
+
 </script>
 
 </html>
